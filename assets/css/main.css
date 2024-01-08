@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap');
+*{
+  padding: 0px;
+  border: 0;
+}
+
+html{
+  scroll-behavior: smooth !important;
+}
+
+body{
+  font-family: 'Source Code Pro', monospace;
+}
+
+.custom-container {
+  /*background: url("../assets/img/backHome.jpg") center/cover;*/
+  height: 92vh;
+}
+
+.bar {
+  position: absolute;
+  height: 100%;
+  width: 5px; /* Largura da barra vertical */
+  background-color: red; /* Cor da barra vertical */
+  left: -10px; /* Distância da barra em relação ao texto, ajuste conforme necessário */
+}  
+
+
+
