@@ -2,7 +2,6 @@
 declare module 'vue' {
   export interface GlobalComponents {
     'About': typeof import("../components/About.vue")['default']
-    'CarouselsProject': typeof import("../components/CarouselsProject.vue")['default']
     'Contact': typeof import("../components/Contact.vue")['default']
     'ContactIconsHome': typeof import("../components/ContactIconsHome.vue")['default']
     'Home': typeof import("../components/Home.vue")['default']
@@ -30,7 +29,6 @@ declare module 'vue' {
     'Html': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
     'LazyAbout': typeof import("../components/About.vue")['default']
-    'LazyCarouselsProject': typeof import("../components/CarouselsProject.vue")['default']
     'LazyContact': typeof import("../components/Contact.vue")['default']
     'LazyContactIconsHome': typeof import("../components/ContactIconsHome.vue")['default']
     'LazyHome': typeof import("../components/Home.vue")['default']
@@ -61,7 +59,6 @@ declare module 'vue' {
 }
 
 export const About: typeof import("../components/About.vue")['default']
-export const CarouselsProject: typeof import("../components/CarouselsProject.vue")['default']
 export const Contact: typeof import("../components/Contact.vue")['default']
 export const ContactIconsHome: typeof import("../components/ContactIconsHome.vue")['default']
 export const Home: typeof import("../components/Home.vue")['default']
@@ -89,7 +86,6 @@ export const Head: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const LazyAbout: typeof import("../components/About.vue")['default']
-export const LazyCarouselsProject: typeof import("../components/CarouselsProject.vue")['default']
 export const LazyContact: typeof import("../components/Contact.vue")['default']
 export const LazyContactIconsHome: typeof import("../components/ContactIconsHome.vue")['default']
 export const LazyHome: typeof import("../components/Home.vue")['default']

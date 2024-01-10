@@ -1,20 +1,26 @@
 <template>
   <div id="habilidadesSection">
     <v-container fluid class="custom-container">
-      <h1 >
+      <h1>
         <span class="bar"></span>
         {{ text.title }}
       </h1>
-      <v-row>
-        <v-col v-for="(item, index) in icons" :key="index">
-          <div class="icons-position">
-            <v-icon size="60" :color="getIconColor(item.icon)">{{
-              item.icon
-            }}</v-icon>
-            <div class="icon-label">{{ item.label }}</div>
-          </div>
-        </v-col>
-      </v-row>
+
+      <div class="icons-position">
+        <v-btn
+          v-for="item in icons"
+          :key="item.icon"
+          :prepend-icon="item.icon"
+          :ripple="false"
+          stacked
+          variant="plain"
+          @click="openProfile(item.icon)"
+          :color="getIconColor(item.icon)"
+          class="btn"
+        >
+          {{ item.label }}
+        </v-btn>
+      </div>
     </v-container>
   </div>
 </template>
@@ -52,10 +58,6 @@ export default {
 </script>
 
 <style scoped>
-.icons-position {
-  margin-left: 25px;
-}
-
 h1 {
   position: relative;
   margin-left: 32px;
@@ -64,18 +66,22 @@ h1 {
   margin-bottom: 50px;
 }
 
+.btn {
+  font-size: 15px; /* Adjust the font size to change the button size */
+  cursor:default;
+  margin-left: 10px;
+}
 
 /* Aplica margem esquerda de -100px apenas em telas lg */
 @media screen and (max-width: 970px) {
-
-
   h1 {
     font-size: 25px;
     margin-bottom: 10px;
     margin-left: -10px;
   }
-  .icons-position {
-    margin-left: 0px;
+
+  .btn {
+    font-size: 14px; /* Adjust the font size to change the button size */
   }
 }
 </style>

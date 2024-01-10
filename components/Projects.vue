@@ -29,9 +29,7 @@
                 {{ item.title }}
               </v-card-title>
               <v-card-subtitle> {{ item.subtitle }} </v-card-subtitle>
-
               <v-divider></v-divider>
-
               <v-card-text>
                 {{ item.text }}
               </v-card-text>
@@ -44,33 +42,30 @@
                   background-color: #ccc;
                 "
               >
-                <v-row justify="center">
-                  <v-col
-                    v-for="(item, index) in icons"
-                    :key="index"
-                    class="custom-col"
-                  >
-                    <v-list-item three-line class="text-center">
-                      <div class="d-none d-md-block">
-                        <v-icon
-                          @click="openProfile(item.icon)"
-                          variant="plain"
-                          :ripple="false"
-                          size="50"
-                          :color="getIconColor(item.icon)"
-                          >{{ item.icon }}</v-icon
-                        >
-                        <div class="icon-label">{{ item.label }}</div>
-                      </div>
-                      <div class="d-md-none d-sm-block">
-                        <v-icon size="30" :color="getIconColor(item.icon)">{{
-                          item.icon
-                        }}</v-icon>
-                      </div>
-                      <div class="d-md-none d-sm-block">
-                        <h6>{{ item.label }}</h6>
-                      </div>
-                    </v-list-item>
+                <v-row class="text-center">
+                  <v-col cols="12">
+                    <v-btn
+                      prepend-icon="mdi-github"
+                      stacked
+                      variant="plain"
+                      :ripple="false"
+                      class="btn"
+                      style="color: #000000"
+                      @click="openGitHubRepo(index)"
+                    >
+                      GitHub
+                    </v-btn>
+                    <v-btn
+                      prepend-icon="mdi-play-circle"
+                      stacked
+                      variant="plain"
+                      :ripple="false"
+                      class="btn"
+                      style="color: #ff5555"
+                      @click="openLink(index)"
+                    >
+                      Ver mais
+                    </v-btn>
                   </v-col>
                 </v-row>
               </v-footer>
@@ -93,15 +88,21 @@ export default {
     items: [
       {
         src: emDesenvolvimentoImage,
+
         title: "Projeto 1",
         subtitle: "Em desenvolvimento",
         text: "I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.",
+        githubRepo: "https://github.com/RicardoNunes23/portfolio_v2",
+        externalLink: "https://www.google.com",
       },
       {
         src: emDesenvolvimentoImage,
         title: "Projeto 2",
         subtitle: "Em desenvolvimento",
         text: "I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.",
+        githubRepo:
+          "https://github.com/RicardoNunes23/projeto1-sistema-financeiro",
+        externalLink: "https://www.youtube.com",
       },
       {
         src: emDesenvolvimentoImage,
@@ -122,27 +123,28 @@ export default {
         text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit rem quidem corporis excepturi veniam consequatur? Repudiandae reprehenderit, nobis id incidunt, facilis, minus eveniet ipsam sit aspernatur vero omnis accusamus! Aspernatur.",
       },
     ],
-
-    icons: [
-      { icon: "mdi-github", color: "#000000", label: "GitHub" }, // Defina a cor desejada para cada ícone
-      { icon: "mdi-linkedin", color: "#3366CC", label: "Linkedin" },
-    ],
   }),
 
   methods: {
-    getIconColor(icon) {
-      const selectedIcon = this.icons.find((item) => item.icon === icon);
-      return selectedIcon ? selectedIcon.color : ""; // Retorna a cor do ícone ou uma string vazia se não houver cor definida
+    openGitHubRepo(index) {
+      const project = this.items[index];
+      if (project.githubRepo) {
+        window.open(project.githubRepo, "_blank");
+      } else {
+        console.error(
+          `O projeto ${project.title} não possui um repositório do GitHub definido.`
+        );
+      }
     },
 
-    openProfile(icon) {
-      const profileLinks = {
-        "mdi-github": "https://github.com/RicardoNunes23",
-        "mdi-linkedin": "https://www.linkedin.com/in/ricardo-nunes-devzero/",
-      };
-      const url = profileLinks[icon];
-      if (url) {
-        window.open(url, "_blank"); // Abre a URL em uma nova guia
+    openLink(index) {
+      const project = this.items[index];
+      if (project.externalLink) {
+        window.open(project.externalLink, "_blank");
+      } else {
+        console.error(
+          `O projeto ${project.title} não possui um link definido.`
+        );
       }
     },
   },
@@ -187,7 +189,7 @@ h1 {
     margin-left: 10px;
   }
 
-  .title{
+  .title {
     margin-top: 0;
   }
 

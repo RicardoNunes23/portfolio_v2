@@ -5,9 +5,9 @@
         <span class="bar"></span>
         {{ text.title }}
       </h1>
-      <v-row>
-        <v-col cols="12" sm="12" md="6">
-        testefasdfa
+      <v-row class="text-center">
+        <v-col>
+          <ContactIconsHome />
         </v-col>
       </v-row>
     </v-container>
@@ -21,15 +21,12 @@ export default {
       title: "Contato",
     },
   }),
-
-
 };
 </script>
 
 <style scoped>
 .custom-container {
-  /*background: url("../assets/img/backHome.jpg") center/cover;*/
-  height: 85vh;
+  height: 40vh;
 }
 h1 {
   position: relative;
@@ -52,9 +49,7 @@ h1 {
 
   .custom-container {
     /*background: url("../assets/img/backHome.jpg") center/cover;*/
-       height: 80%;
- 
-  
+    height: 80%;
   }
 }
 </style>

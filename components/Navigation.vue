@@ -27,7 +27,6 @@ export default {
     navigationItems: [
       { label: "Home" },
       { label: "Sobre" },
-      { label: "Habilidades" },
       { label: "Projetos" },
       { label: "Contato" },
     ],
@@ -38,7 +37,7 @@ export default {
         `${sectionLabel.toLowerCase()}Section`
       );
       if (element) {
-        const offset = 65; // Ajuste o valor da margem superior conforme necessário
+        const offset = 65;
         window.scrollTo({
           top: element.offsetTop - offset,
           behavior: "smooth",
@@ -53,26 +52,24 @@ export default {
 </script>
 
 <style scoped>
-.v-btn{
+.v-btn {
   font-size: 18px;
   color: #fff;
 }
+
 .navigation-list {
   list-style: none;
   padding: 0;
-  
 }
 
 .navigation-item {
   flex: 1;
   margin-right: 10px;
-
 }
 
-.v-btn:hover{
+.v-btn:hover {
   font-size: 20px;
   font-weight: bold;
   color: #fff;
-
 }
 </style>
