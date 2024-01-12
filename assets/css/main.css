@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap');
+*{
+  padding: 0px;
+  border: 0;
+  font-family: 'Source Code Pro', monospace;
+}
+
+html{
+  scroll-behavior: smooth !important;
+}
+
+
+
+
