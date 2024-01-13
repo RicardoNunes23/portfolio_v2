@@ -2,14 +2,14 @@
   <v-app>
     <v-app-bar fixed class="header">
       <img src="../assets/img/logo.png" alt="" class="logo" />
+      <v-switch
+        v-model="$vuetify.theme.dark"
+        class="modedark"
+        color="black"
+        inset
+      ></v-switch>
       <nav class="nav">
         <button class="hamburger" @click="toggleNav"></button>
-        <v-switch
-          v-model="$vuetify.theme.dark"
-          class="modedark"
-          color="black"
-          inset
-        ></v-switch>
         <ul class="nav-list">
           <li v-for="(item, index) in navigationItems" :key="index">
             <a
@@ -26,13 +26,13 @@
     </v-app-bar>
     <Nuxt />
     <v-footer
-      class="bg-indigo-lighten-1 text-center d-flex flex-column"
-      style="padding-block: 50px"
+      class=" text-center d-flex flex-column"
+      style="padding-block: 50px; background-color: #5c6bc0 ;"
     >
       <a href="/"
         ><img src="../assets/img/logo.png" alt="" class="logoRoda"
       /></a>
-      <h2>{{ text.subtitle }}</h2>
+      <h2 style="color: #fff;">{{ text.subtitle }}</h2>
       <v-icon>mdi-map-marker-radius</v-icon>
       <h3>
         {{ text.address }}
@@ -152,6 +152,7 @@ export default {
 
 .modedark {
   margin-top: 23px;
+  margin-left: 65vw;
 }
 
 @media (max-width: 750px) {
@@ -166,10 +167,10 @@ export default {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: #a5c;
+    background: #5c6bc0;
     clip-path: circle(100px at 100% -15%);
 
-    transition: 1s ease-out;
+  
 
     flex-direction: column;
     justify-content: space-around;
@@ -184,19 +185,7 @@ export default {
     opacity: 0;
   }
 
-  .nav-list li:nth-child(1) a {
-    transition: 0.5s 0.2s;
-  }
-
-  .nav-list li:nth-child(2) a {
-    transition: 0.5s 0.4s;
-  }
-
-  .nav-list li:nth-child(3) a {
-    transition: 0.5s 0.6s;
-  }
-
-  /* Estilos ativos */
+   /* Estilos ativos */
 
   .nav.active .nav-list {
     clip-path: circle(1500px at 90% -15%);
@@ -222,5 +211,10 @@ export default {
     transform: rotate(-135deg);
     top: -7px;
   }
+
+  .modedark {
+  margin-top: 23px;
+  margin-left: 45vw;
+}
 }
 </style>
