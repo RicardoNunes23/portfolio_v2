@@ -1,40 +1,41 @@
 <template>
   <v-app>
-    <v-app-bar fixed class="header">
-      <img src="../assets/img/logo.png" alt="" class="logo" />
-      <v-switch
-        v-model="$vuetify.theme.dark"
-        class="modedark"
-        color="black"
-        inset
-      ></v-switch>
-      <nav class="nav">
-        <button class="hamburger" @click="toggleNav"></button>
-        <ul class="nav-list">
-          <li v-for="(item, index) in navigationItems" :key="index">
-            <a
-              variant="plain"
-              :ripple="false"
-              class="navigation-item"
-              @click="scrollToSection(item.label)"
-            >
-              {{ item.label }}
-            </a>
-          </li>
-        </ul>
-      </nav>
+    <v-app-bar fixed class="header" flat>
+      <div class="app-bar-content">
+        <div class="start-text">&lt;Ricardo Nunes/&gt;</div>
+        <nav class="nav">
+          <v-switch
+            v-model="$vuetify.theme.dark"
+            class="modedark"
+            color="black"
+            inset
+          ></v-switch>
+
+          <button class="hamburger" @click="toggleNav"></button>
+          <ul class="nav-list">
+            <li v-for="(item, index) in navigationItems" :key="index">
+              <a
+                variant="plain"
+                :ripple="false"
+                class="navigation-item"
+                @click="scrollToSection(item.label)"
+              >
+                {{ item.label }}
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </v-app-bar>
     <Nuxt />
     <v-footer
-      class=" text-center d-flex flex-column"
-      style="padding-block: 50px; background-color: #5c6bc0 ;"
+      class="text-center d-flex flex-column"
+      style="padding-block: 50px; background-color: #5c6bc0"
     >
-      <a href="/"
-        ><img src="../assets/img/logo.png" alt="" class="logoRoda"
-      /></a>
-      <h2 style="color: #fff;">{{ text.subtitle }}</h2>
-      <v-icon>mdi-map-marker-radius</v-icon>
-      <h3>
+    <h2 style="color: #fff">{{ text.subtitle }}</h2>
+    <h2 style="color: #fff">{{ text.fone }}</h2>
+    <br>
+      <h3 style="color: #fff;">
         {{ text.address }}
       </h3>
     </v-footer>
@@ -50,12 +51,12 @@ export default {
       { label: 'Home' },
       { label: 'Sobre' },
       { label: 'Projetos' },
-      { label: 'Contato' },
+      { label: 'Contatos' },
     ],
     text: {
-      address: 'Brasília- DF',
-      title: 'DevZero',
-      subtitle: 'Ricardo Nunes',
+      address: '( Brasília- DF )',
+      fone: '[ 61 98129-1628 ]',
+      subtitle: '< Ricardo Nunes >',
     },
     isDrawerOpen: false,
   }),
@@ -91,27 +92,28 @@ export default {
 }
 .header {
   background-color: #5c6bc0 !important;
+  height: 70px !important;
 }
 
-.navigation-item {
-  color: primary;
-}
-.logo {
-  justify-content: start;
-  align-items: center;
-  display: flex;
-  height: 100%;
-}
-.btn {
-  margin-top: 10px;
-}
-.logoRoda {
-  height: 50px;
-  margin-top: 12px;
-}
+.app-bar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+  }
+
+.start-text {
+    /* Adicione estilos conforme necessário */
+    margin-right: 16px; /* Ajuste a margem conforme necessário */
+    margin-left: 25px;
+    color: #fff;
+    font-weight: bolder;
+    font-size: 25px;
+    margin-top: 5px;
+  }
 
 .nav {
-  width: 100%;
+  width: 95%;
   height: 70px;
   display: flex;
   justify-content: end;
@@ -128,6 +130,15 @@ export default {
   font-size: 18px;
   color: #fff;
   padding-block: 16px;
+}
+
+.nav-list a:hover {
+  font-size: 18px;
+  color: #f7cb09;
+  font-weight: bolder;
+  justify-content: center;
+  transition: opacity .2s linear;
+ 
 }
 
 .hamburger {
@@ -155,10 +166,31 @@ export default {
   margin-left: 65vw;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 768px) {
   .hamburger {
     display: block;
     z-index: 1;
+  }
+
+  span {
+    color: blue;
+    width: 1500px;
+  }
+
+  .app-bar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+  }
+
+.start-text {
+    /* Adicione estilos conforme necessário */
+    margin-right: 16px; /* Ajuste a margem conforme necessário */
+    margin-left: 0px;
+    color: #fff;
+    font-weight: bolder;
+    font-size: 15px;
   }
 
   .nav-list {
@@ -169,8 +201,6 @@ export default {
     height: 100vh;
     background: #5c6bc0;
     clip-path: circle(100px at 100% -15%);
-
-  
 
     flex-direction: column;
     justify-content: space-around;
@@ -185,7 +215,7 @@ export default {
     opacity: 0;
   }
 
-   /* Estilos ativos */
+  /* Estilos ativos */
 
   .nav.active .nav-list {
     clip-path: circle(1500px at 90% -15%);
@@ -213,8 +243,8 @@ export default {
   }
 
   .modedark {
-  margin-top: 23px;
-  margin-left: 45vw;
-}
+    margin-top: 23px;
+    margin-left: 45vw;
+  }
 }
 </style>

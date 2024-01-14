@@ -1,10 +1,10 @@
 <template>
   <div id="projetosSection">
     <v-container fluid class="custom-container">
-      <h1>
-        <span class="bar"></span>
-        {{ text.title }}
-      </h1>
+      <v-row>
+        <v-col cols="12"> </v-col>
+      </v-row>
+      <h1>{{ text.title }}</h1>
 
       <v-slide-group v-model="model">
         <v-slide-item v-for="(item, index) in items" :key="index">
@@ -18,7 +18,7 @@
               {{ item.subtitle }}
             </v-card-subtitle>
             <v-divider></v-divider>
-            <v-card-text>
+            <v-card-text class="text">
               {{ item.text }}
             </v-card-text>
             <v-footer
@@ -32,27 +32,17 @@
             >
               <v-row class="text-center">
                 <v-col cols="12">
-                  <v-btn
-                    prepend-icon="mdi-github"
-                    stacked
-                    variant="plain"
-                    :ripple="false"
-                    class="btn"
-                    style="color: #000000"
-                    @click="openLink(item.githubRepo)"
-                  >
-                    GitHub
+                  <v-btn class="ma-2" @click="openLink(item.githubRepo)">
+                    <v-icon left> mdi-github </v-icon>GitHub
                   </v-btn>
+
                   <v-btn
-                    prepend-icon="mdi-play-circle"
-                    stacked
-                    variant="plain"
-                    :ripple="false"
-                    class="btn"
-                    style="color: #ff5555"
+                    class="ma-2"
+                    color="primary"
                     @click="openLink(item.externalLink)"
                   >
-                    Ver mais
+                    Abrir
+                    <v-icon right> mdi-play </v-icon>
                   </v-btn>
                 </v-col>
               </v-row>
@@ -66,6 +56,9 @@
           </v-card>
         </v-slide-item>
       </v-slide-group>
+      <h1>
+        {{ text.ftitle }}
+      </h1>
     </v-container>
   </div>
 </template>
@@ -75,7 +68,8 @@ import emDesenvolvimentoImage from '@/assets/img/emDesenvolvimento.gif'
 export default {
   data: () => ({
     text: {
-      title: 'Projetos',
+      title: '< Projetos >',
+      ftitle: '</ Projetos >',
     },
     model: null,
     items: [
@@ -146,17 +140,19 @@ h1 {
   position: relative;
   margin-left: 50px;
   color: blue;
-  margin-top: 5px;
-  margin-bottom: 50px;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 .card-project {
   width: 400px;
-  height: 75vh;
+  height: 70vh;
   margin-inline: 20px;
+  background-color: #ccc;
 }
+
 .custom-img {
-  height: 300px;
+  height: 250px;
   margin: 5px;
 }
 
@@ -170,13 +166,8 @@ h1 {
   font-size: 15px !important;
   font-weight: bold !important;
 }
-
-.bar {
-  position: absolute;
-  height: 100%;
-  width: 5px; /* Largura da barra vertical */
-  background-color: red; /* Cor da barra vertical */
-  left: -10px; /* Distância da barra em relação ao texto, ajuste conforme necessário */
+.text {
+  color: black !important;
 }
 
 @media screen and (max-width: 700px) {
@@ -192,11 +183,14 @@ h1 {
 
   .card-project {
     width: 300px;
-    height: 75vh;
-    margin-inline: 20px;
+    margin-inline: 15px;
   }
   .custom-img {
     display: none;
+  }
+
+  .text {
+    color: black !important;
   }
 }
 </style>
