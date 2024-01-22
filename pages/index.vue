@@ -4,6 +4,7 @@
     <AboutApp ref="aboutSection" />
     <ProjectApp ref="projectSection" />
     <ContactApp ref="contactSection" />
+
   </div>
 </template>
 

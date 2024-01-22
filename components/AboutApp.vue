@@ -1,13 +1,13 @@
 <template>
   <div id="sobreSection">
-    <v-container fluid class="custom-container">
+    <v-container fluid>
       <v-row>
-        <v-col cols="12" sm="12" md="6" lg="8">
-          <h1>
+        <v-col cols="12" sm="12" md="12" lg="8">
+          <h1 class="title_1">
             {{ text.title }}
           </h1>
           <div class="d-flex align-center justify-center">
-            <div class="blob d-md-none"></div>
+            <div class="blob d-lg-none"></div>
           </div>
           <h2>
             <div v-html="text.description"></div>
@@ -17,12 +17,16 @@
           <h4>{{ text.textFormacao }}</h4>
           <h5>{{ text.formacao }}</h5>
           <SkillsApp />
-          <h1>
+          <h1 class="title_2">
             {{ text.ftitle }}
           </h1>
         </v-col>
-        <v-col cols="4" md="6" lg="4" class="d-none d-md-flex">
-          <a class="blob" style="margin-top: 6%" href="https://www.linkedin.com/in/ricardo-nunes-devzero/" target="_blank"></a>
+        <v-col cols="12" lg="4" class="d-none d-lg-flex blobdirection">
+          <a
+            class="blob"
+            href="https://www.linkedin.com/in/ricardo-nunes-devzero/"
+            target="_blank"
+          ></a>
         </v-col>
       </v-row>
     </v-container>
@@ -59,16 +63,12 @@ export default {
 </script>
 
 <style scoped>
-.custom-container {
-  /*background: url("../assets/img/backHome.jpg") center/cover;*/
-  height: 92vh;
+.blobdirection {
+  padding: 5%;
 }
-h1 {
-  position: relative;
-  margin-left: 50px;
-  color: blue;
-  margin-top: 20px;
-  margin-bottom: 30px;
+
+.title_2 {
+  padding-top: 15%;
 }
 
 h2 {
@@ -95,27 +95,18 @@ h4 {
 h5 {
   font-size: 20px;
   margin-top: -135px;
-
   margin-left: 75px;
   color: #e65100;
 }
 
 .blob {
   border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%;
-  width: 60vmin;
-  height: 60vmin;
+  width: 50vmin;
+  height: 50vmin;
   background: #f09;
   background-image: linear-gradient(45deg, #3023ae 0%, #f09 100%);
   background: url('../assets/img/fotoRicardoL.jpeg') center/cover;
   animation: morph 5s linear infinite alternate;
-}
-
-.bar {
-  position: absolute;
-  height: 100%;
-  width: 5px; /* Largura da barra vertical */
-  background-color: red; /* Cor da barra vertical */
-  left: -10px; /* Distância da barra em relação ao texto, ajuste conforme necessário */
 }
 
 @keyframes morph {
@@ -128,18 +119,18 @@ h5 {
 }
 
 @media screen and (max-width: 970px) {
-  .custom-container {
-    /*background: url("../assets/img/backHome.jpg") center/cover;*/
-    height: 50%;
+  .title_1 {
+    font-size: clamp(1.5em, 1em + 1vw, 1em);
+    position: relative;
+    color: blue;
+    padding-block: 2%;
   }
 
-  .title {
-    margin-top: 0;
-  }
-  h1 {
-    font-size: 25px;
-    margin-bottom: 10px;
-    margin-left: 10px;
+  .title_2 {
+    font-size: clamp(1.5em, 1em + 1vw, 1em);
+    position: relative;
+    color: blue;
+    padding-top: 15%;
   }
 
   h2 {

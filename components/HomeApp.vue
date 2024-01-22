@@ -3,18 +3,13 @@
     <v-container fluid class="home-container">
       <v-row>
         <v-col cols="12" sm="12" md="4">
-          <h1>
-            {{ text.title }}
-          </h1>
-          <h2>
-            {{ text.subtitle }}
-          </h2>
+          <h1>{{ text.title }}</h1>
+          <h2>{{ text.subtitle }}</h2>
           <v-row justify="center" align="center" class="mt-15">
             <v-col cols="12" sm="12" md="12" lg="12" class="btn-icon">
               <a href="https://github.com/RicardoNunes23/" target="_blank">
                 <v-icon class="icon">mdi-github</v-icon>
               </a>
-
               <a
                 href="https://www.linkedin.com/in/ricardo-nunes-devzero/"
                 target="_blank"
@@ -23,16 +18,40 @@
                   >mdi-linkedin</v-icon
                 >
               </a>
-
               <a
                 href="https://api.whatsapp.com/send/?phone=5561981291628"
                 target="_blank"
               >
-                <v-icon class="icon" style="color: #25d366">
-                  mdi-whatsapp</v-icon
+                <v-icon class="icon" style="color: #25d366"
+                  >mdi-whatsapp</v-icon
                 >
               </a>
             </v-col>
+            <div class="text-center">
+              <v-btn color="primary" @click="dialog = true" outlined
+                >currículo</v-btn
+              >
+              <v-dialog v-model="dialog" width="auto" z-index="1">
+                <v-card>
+                  <v-card>
+                    <img
+                      src="../assets/img/CV_Ricardo_v2.jpg"
+                      alt=""
+                      width="900px"
+                    />
+                  </v-card>
+                  <v-card-actions>
+                    <v-btn
+                      color="error"
+                      block
+                      @click="dialog = false"
+                      style="width: 100%"
+                      >Fechar</v-btn
+                    >
+                  </v-card-actions>
+                </v-card>
+              </v-dialog>
+            </div>
           </v-row>
         </v-col>
         <v-col cols="12" sm="12" md="8">
@@ -47,12 +66,14 @@
 export default {
   data: () => ({
     text: {
-      title: '{{ Ricardo Nunes }}',
-      subtitle: '< Desenvolvedor Fullstack />',
+      title: 'Ricardo Nunes',
+      subtitle: 'Desenvolvedor Fullstack',
     },
+    dialog: false,
   }),
 }
 </script>
+
 
 <style lang="scss" scoped>
 .hero {

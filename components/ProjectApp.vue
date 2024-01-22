@@ -1,64 +1,73 @@
 <template>
   <div id="projetosSection">
-    <v-container fluid class="custom-container">
+    <v-container fluid>
       <v-row>
-        <v-col cols="12"> </v-col>
-      </v-row>
-      <h1>{{ text.title }}</h1>
+        <v-col >
+          <h1 class="title_1">
+            {{ text.title }}
+          </h1>
+          <v-slide-group v-model="model">
+            <v-slide-item v-for="(item, index) in items" :key="index">
+              <v-card class="card-project">
+                <v-img :src="item.src" class="custom-img" cover></v-img>
 
-      <v-slide-group v-model="model">
-        <v-slide-item v-for="(item, index) in items" :key="index">
-          <v-card class="card-project">
-            <v-img :src="item.src" class="custom-img" cover></v-img>
-
-            <v-card-title class="title">
-              {{ item.title }}
-            </v-card-title>
-            <v-card-subtitle class="subtitle">
-              {{ item.subtitle }}
-            </v-card-subtitle>
-            <v-divider></v-divider>
-            <v-card-text class="text">
-              {{ item.text }}
-            </v-card-text>
-            <v-footer
-              class="card-footer"
-              style="
-                position: absolute;
-                bottom: 0;
-                width: 100%;
-                background-color: #ccc;
-              "
-            >
-              <v-row class="text-center">
-                <v-col cols="12">
-                  <v-btn class="ma-2" @click="openLink(item.githubRepo)">
-                    <v-icon left> mdi-github </v-icon>GitHub
-                  </v-btn>
-
-                  <v-btn
-                    class="ma-2"
-                    color="primary"
-                    @click="openLink(item.externalLink)"
-                  >
-                    Abrir
-                    <v-icon right> mdi-play </v-icon>
-                  </v-btn>
-                </v-col>
-              </v-row>
-            </v-footer>
-
-            <v-expand-transition>
-              <div v-show="show">
+                <v-card-title class="title">
+                  {{ item.title }}
+                </v-card-title>
+                <v-card-subtitle class="subtitle">
+                  {{ item.subtitle }}
+                </v-card-subtitle>
                 <v-divider></v-divider>
-              </div>
-            </v-expand-transition>
-          </v-card>
-        </v-slide-item>
-      </v-slide-group>
-      <h1>
-        {{ text.ftitle }}
-      </h1>
+                <v-card-text class="text">
+                  {{ item.text }}
+                </v-card-text>
+                <v-footer
+                  class="card-footer"
+                  style="
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    background-color: #ccc;
+                  "
+                >
+                  <v-row class="text-center">
+                    <v-col cols="12">
+                      <v-btn class="ma-2" @click="openLink(item.githubRepo)">
+                        <v-icon left> mdi-github </v-icon>GitHub
+                      </v-btn>
+
+                      <v-btn
+                        class="ma-2"
+                        color="primary"
+                        @click="openLink(item.externalLink)"
+                      >
+                        Abrir
+                        <v-icon right> mdi-play </v-icon>
+                      </v-btn>
+                    </v-col>
+                  </v-row>
+                </v-footer>
+
+                <v-expand-transition>
+                  <div>
+                    <v-divider></v-divider>
+                  </div>
+                </v-expand-transition>
+              </v-card>
+            </v-slide-item>
+          </v-slide-group>
+          <h1 class="title_2">
+            {{ text.ftitle }}
+          </h1>
+        </v-col>
+        <v-col cols="12" lg="4" class="d-none d-lg-flex">
+          <a
+            class="blob"
+            href="https://www.linkedin.com/in/ricardo-nunes-devzero/"
+            target="_blank"
+          ></a>
+        </v-col>
+      </v-row>
     </v-container>
   </div>
 </template>
@@ -132,17 +141,11 @@ export default {
 </script>
 
 <style scoped>
-.custom-container {
-  /*background: url("../assets/img/backHome.jpg") center/cover;*/
-  height: 92vh;
+
+.title_2 {
+  padding-top: 2%;
 }
-h1 {
-  position: relative;
-  margin-left: 50px;
-  color: blue;
-  margin-top: 20px;
-  margin-bottom: 30px;
-}
+
 
 .card-project {
   width: 400px;
@@ -170,15 +173,19 @@ h1 {
   color: black !important;
 }
 
-@media screen and (max-width: 700px) {
-  h1 {
-    font-size: 25px;
-    margin-bottom: 10px;
-    margin-left: 10px;
+@media screen and (max-width: 970px) {
+  .title_1 {
+    font-size: clamp(1.5em, 1em + 1vw, 1em);
+    position: relative;
+    color: blue;
+    padding-block: 2%;
   }
 
-  .title {
-    margin-top: 0;
+  .title_2 {
+    font-size: clamp(1.5em, 1em + 1vw, 1em);
+    position: relative;
+    color: blue;
+    padding-top: 10%;
   }
 
   .card-project {

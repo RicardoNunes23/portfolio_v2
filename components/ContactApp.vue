@@ -1,7 +1,7 @@
 <template>
   <div id="contatosSection">
-    <v-container fluid class="custom-container">
-      <h1>
+    <v-container fluid>
+      <h1 class="title_1">
         {{ text.title }}
       </h1>
       <v-row class="text-center">
@@ -74,55 +74,37 @@ export default {
 </script>
 
 <style scoped>
-.custom-container {
-  height: 70vh;
-}
-
 
 .v-icon {
   font-size: 50px;
   padding-inline: 50px;
 }
-h1 {
-  position: relative;
-  margin-left: 32px;
-  color: blue;
-  margin-top: 20px;
-  margin-bottom: 50px;
-}
 
-.bar {
-  position: absolute;
-  height: 100%;
-  width: 5px; /* Largura da barra vertical */
-  background-color: red; /* Cor da barra vertical */
-  left: -10px; /* Distância da barra em relação ao texto, ajuste conforme necessário */
-}
+.btn-icon {
+    margin-bottom: 10%;
+  }  
 
 /* Aplica margem esquerda de -100px apenas em telas lg */
 @media screen and (max-width: 970px) {
-  
-  h1 {
-    font-size: 25px;
-    margin-bottom: 10px;
-    margin-left: 10px;
+
+   .title_1 {
+    font-size: clamp(1.5em, 1em + 1vw, 1em);
+    position: relative;
+    color: blue;
+   
   }
+
   .icons-position {
     margin-left: 0px;
   }
 
   .v-icon {
     font-size: 50px;
-    padding-inline: 25px;
+    padding-inline: 6%;
   }
 
   .btn-icon {
-    margin-bottom: 50px;
-  }
-
-  .custom-container {
-    /*background: url("../assets/img/backHome.jpg") center/cover;*/
-    height: 60vh;
-  }
+    margin-bottom: 25%;
+  }  
 }
 </style>

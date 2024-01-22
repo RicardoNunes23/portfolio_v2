@@ -1,6 +1,10 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
+  server: {
+    port: 8080, // Defina a porta desejada
+    host: '0.0.0.0', // Isso permite que o servidor seja acessível de qualquer endereço IP
+  },
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 

@@ -1,14 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap');
-*{
+
+* {
   padding: 0px;
+  margin: 0px;
   border: 0;
   font-family: 'Source Code Pro', monospace;
 }
 
-html{
+body {
+  max-width: 100%;
+  
+}
+
+html {
   scroll-behavior: smooth !important;
 }
 
+.title_1 {
+  position: relative;
+  color: blue;
+  padding-block: 1%;
+}
+
+.title_2 {
+  position: relative;
+  color: blue;
 
 
-
+}
